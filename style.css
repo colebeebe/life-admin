@@ -7,11 +7,10 @@
     /* found on https://color.adobe.com/explore */
     --dark: #5c4b51;
     --blue: #8cbeb2;
-    --light: #f2ebbf;
+    --light: #edebde;
     --gold: #f3b562;
     --red: #f06060;
-    --green: #b1b501;
-    --green2: #c9cc66;
+    --green: #c9cc66;
 }
 
 html {
@@ -25,7 +24,7 @@ body {
 }
 
 main {
-    background-color: floralwhite;
+    background-color: var(--light);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     flex-grow: 1;
@@ -62,10 +61,9 @@ nav a {
     padding: 20px 0;
     font-size: 20px;
     font-family: "Roboto Flex", Tahoma, Verdana, sans-serif;
-    font-weight: bold;
 }
 nav a:hover {
-    background-color: #b6d9d1;
+    background-color: var(--gold); /* #b6d9d1; */
     border-radius: 20px;
     color: var(--dark)
 }
@@ -81,15 +79,19 @@ h1, h2, h3 {
     font-family: Domina, Cambria, Georgia, serif;
 }
 
+.btn-default {
+    background-color: var(--gold);
+    color: var(--dark);
+}
 .btn-confirm {
-    background-color: var(--green2);
+    background-color: var(--green);
     color: var(--dark);
 }
 .btn-deny {
     background-color: var(--red);
-    color: floralwhite;
+    color: var(--light);
 }
-.btn-confirm, .btn-deny {
+.btn-default, .btn-confirm, .btn-deny {
     padding: 8px 20px;
     border-radius: 5px;
     border: none;
