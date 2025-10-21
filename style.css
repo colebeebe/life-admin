@@ -3,6 +3,8 @@
 }
 
 :root {
+    /* Adjusted palette from "Copy of vintage card" by marketing */
+    /* found on https://color.adobe.com/explore */
     --dark: #5c4b51;
     --blue: #8cbeb2;
     --light: #f2ebbf;
@@ -109,4 +111,15 @@ h1, h2, h3 {
     display: flex;
     justify-content: flex-end;
     margin: 20px;
+}
+
+.color-palette {
+    display: grid;
+    grid-auto-flow: column;
+    min-width: 800px;
+    justify-self: center;
+    margin: 80px 0;
+}
+.color-palette div {
+    min-height: 200px;
 }
