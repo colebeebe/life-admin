@@ -41,7 +41,7 @@ main {
 }
 
 #side-panel h1 {
-    color: var(--light);
+    color: var(--gold);
     justify-content: center;
 }
 
@@ -94,6 +94,7 @@ h1, h2, h3 {
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+    min-width: 100px;
 }
 
 .note {
@@ -101,10 +102,12 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
 }
-.note input {
+.note textarea {
     min-width: 700px;
     min-height: 400px;
     margin: 0 20px;
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 20px;
 }
 .note div {
     min-width: 700px;
@@ -118,7 +121,7 @@ h1, h2, h3 {
     grid-auto-flow: column;
     min-width: 800px;
     justify-self: center;
-    margin: 80px 0;
+    padding: 80px 0;
 }
 .color-palette div {
     min-height: 200px;
