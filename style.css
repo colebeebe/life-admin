@@ -1,0 +1,61 @@
+* {
+    /* border: 2px solid red; */
+}
+
+:root {
+    --dark: #5c4b51;
+    --blue: #8cbeb2;
+    --light: #f2ebbf;
+    --gold: #f3b562;
+    --red: #f06060;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background-color: floralwhite;
+}
+
+#side-panel {
+    flex: 0 1 18%;	/* Try to keep the side panel at 18% */
+    max-width: 250px;	/* Keep the side panel between 200 and 250 pixels */
+    min-width: 200px;
+    background-color: var(--dark);
+    /* background: linear-gradient(to bottom, var(--red), var(--gold)); */
+}
+
+#side-panel h1 {
+    color: var(--light);
+    justify-content: center;
+}
+
+nav {
+    display: grid;
+    grid-auto-flow: row;
+    text-align: center;
+}
+nav a {
+    display: block;
+    color: var(--light);
+    text-decoration: none;
+    width: 90%;
+    margin: 3px auto;
+    padding: 20px 0;
+    font-size: 20px;
+}
+nav a:hover {
+    background-color: #b6d9d1;
+    border-radius: 20px;
+    color: var(--dark)
+}
+#selected-tab {
+    background-color: var(--blue);
+    color: var(--dark);
+    border-radius: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--dark);
+    text-align: center;
+}
