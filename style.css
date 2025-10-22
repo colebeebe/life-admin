@@ -1,5 +1,6 @@
 * {
     /* border: 2px solid red; */
+    margin: 0; /* Set all margins to zero so that we have better control over them */
 }
 
 :root {
@@ -18,67 +19,78 @@ html {
 }
 
 body {
-    margin: 0;
-    display: flex;
-    min-height: 100vh;
+    font-family: "Roboto Flex", Tahoma, Verdana, sans-serif;
 }
 
-main {
-    background-color: var(--light);
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    flex-grow: 1;
-    margin: 15px auto;
+h1, h2, h3 {
+    color: var(--dark);
+    font-family: Domina, Cambria, Georgia, serif;
 }
 
-#side-panel {
-    flex: 0 1 18%;	/* Try to keep the side panel at 18% */
-    max-width: 250px;	/* Keep the side panel between 200 and 250 pixels */
-    min-width: 200px;
-    background-color: var(--dark);
-    /* background: linear-gradient(to bottom, var(--red), var(--gold)); */
-}
-
-#side-panel h1 {
-    color: var(--gold);
-    justify-content: center;
-}
-
-#side-panel a {
+a {
     text-decoration: none;
 }
 
 nav {
     display: grid;
     grid-auto-flow: row;
+    margin-right: 15px;
+}
+
+#side-panel {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
     text-align: center;
 }
 nav a {
-    display: block;
     color: var(--light);
-    width: 90%;
-    margin: 3px auto;
     padding: 20px 0;
+    margin: 3px 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     font-size: 20px;
-    font-family: "Roboto Flex", Tahoma, Verdana, sans-serif;
 }
 nav a:hover {
-    background-color: var(--gold); /* #b6d9d1; */
-    border-radius: 20px;
-    color: var(--dark)
+    background-color: var(--gold);
+    color: var(--dark);
 }
+#side-panel h1 {
+    color: var(--gold);
+    margin: 30px auto;
+}
+
 #selected-tab {
     background-color: var(--blue);
     color: var(--dark);
-    border-radius: 20px;
 }
 
-h1, h2, h3 {
+main {
+    margin: 15px auto;
     color: var(--dark);
-    text-align: center;
-    font-family: Domina, Cambria, Georgia, serif;
+    background-color: var(--light);
+    margin-left: 250px;
+    min-height: calc(100vh - 30px);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+main h1 {
+    margin: 40px auto;
 }
 
+.btn-default, .btn-confirm, .btn-deny {
+    margin: 10px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    min-width: 100px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
 .btn-default {
     background-color: var(--gold);
     color: var(--dark);
@@ -90,45 +102,4 @@ h1, h2, h3 {
 .btn-deny {
     background-color: var(--red);
     color: var(--light);
-}
-.btn-default, .btn-confirm, .btn-deny {
-    padding: 8px 20px;
-    border-radius: 5px;
-    border: none;
-    margin: 0 10px;
-    font-family: "Roboto Flex", Tahoma, Verdana, sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    min-width: 100px;
-}
-
-.note {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.note textarea {
-    min-width: 700px;
-    min-height: 400px;
-    margin: 0 20px;
-    font-family: "Roboto Flex", Tahoma, Verdana, sans-serif;
-    font-size: 20px;
-}
-.note div {
-    min-width: 700px;
-    display: flex;
-    justify-content: flex-end;
-    margin: 20px;
-}
-
-.color-palette {
-    display: grid;
-    grid-auto-flow: column;
-    min-width: 800px;
-    justify-self: center;
-    padding: 80px 0;
-}
-.color-palette div {
-    min-height: 200px;
 }
