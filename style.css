@@ -116,6 +116,8 @@ main h1 {
 @media screen and (max-width: 1000px) {
     #side-panel a {
 	visibility: hidden;
+	pointer-events: none;
+	cursor: default;
     }
     main {
 	margin-left: 15px;
