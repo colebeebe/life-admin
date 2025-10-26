@@ -85,6 +85,7 @@ main {
     display: flex;
     align-content: center;
     flex-direction: column;
+    position: relative;
 }
 main h1 {
     margin: 40px auto;
@@ -138,6 +139,16 @@ main h1 {
     }
     #menu-button {
 	visibility: visible;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	font-size: 25px;
+	background-color: var(--dark);
+	color: var(--light);
+	border: none;
+	position: absolute;
+	top: 20px;
+	left: 20px;
     }
 }
 
