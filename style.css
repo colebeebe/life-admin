@@ -123,6 +123,12 @@ main h1 {
 	pointer-events: none;
 	cursor: default;
     }
+    #side-panel.open a {
+	visibility: visible;
+	pointer-events: all;
+	cursor: pointer;
+    }
+
     main {
 	margin-left: 0;
 	border-top-left-radius: 0;
@@ -142,17 +148,20 @@ main h1 {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	font-size: 25px;
+	font-size: 28px;
 	background-color: var(--dark);
 	color: var(--light);
 	border: none;
 	position: absolute;
 	top: 20px;
 	left: 20px;
+	font-family: Manrope;
     }
 }
 
 @media screen and (max-width: 700px) {
-
+    main.open * {
+	visibility: hidden;
+    }
 }
 
