@@ -94,48 +94,6 @@ main h1 {
     visibility: hidden;
 }
 
-
-.container {
-    user-select: none;
-}
-.container input {
-    position: relative;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-.container input:checked ~ .checkmark-border .checkmark {
-    background-color: var(--red);
-}
-.checkmark-border {
-    margin: 0 15px;
-    border: 2px solid var(--red);
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    position: absolute;
-    cursor: pointer;
-}
-.checkmark {
-    border-radius: 50%;
-    height: 16px;
-    width: 16px;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-}
-
-.todo-item {
-    width: 500px;
-    margin: 10px auto;
-    background-color: white;
-}
-.todo-item:has(input:checked) * {
-    text-decoration: line-through;
-    color: gray;
-}
-
 .btn-default, .btn-confirm, .btn-deny {
     margin: 10px;
     padding: 8px 20px;
@@ -161,7 +119,6 @@ main h1 {
 
 @media screen and (max-width: 1000px) {
     #side-panel a {
-	visibility: hidden;
 	pointer-events: none;
 	cursor: default;
     }

@@ -1,0 +1,52 @@
+.container {
+    user-select: none;
+}
+.container input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.container input:checked ~ .checkmark-border .checkmark {
+    background-color: var(--red);
+}
+.checkmark-border {
+    margin: 0 15px;
+    border: 2px solid var(--red);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+.checkmark {
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.todo-item {
+    width: 80%;
+    max-width: 500px;
+    margin: 10px auto;
+    background-color: white;
+    border-radius: 20px;
+}
+.todo-item h1, .todo-item h2, .todo-item p {
+    margin: 15px;
+}
+.todo-item h1 {
+    margin-top: 30px;
+}
+.todo-item:has(input:checked) * {
+    text-decoration: line-through;
+    color: gray;
+}
+
+#new-todo {
+    margin: 10px auto;
+}
