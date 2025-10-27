@@ -1,7 +1,7 @@
 const todos = [
     {
 	id: 1,
-	title: "Study Japanese",
+	title: "Study",
 	finished: false,
 	date: new Date(2025, 9, 27),
 	notes: "Study for at least 15 minutes."
@@ -27,6 +27,7 @@ todos.forEach((todo) => {
     checkbox.classList.add("container");
     const input = document.createElement("input");
     input.type = "checkbox";
+    input.checked = todo.finished;
     checkbox.appendChild(input);
     const border = document.createElement("div");
     border.classList.add("checkmark-border");
@@ -54,14 +55,6 @@ todos.forEach((todo) => {
     const notes = document.createElement("p");
     notes.innerText = todo.notes;
     
-    // TODO: this needs to be moved to an event listener
-    // Set classes so that text is crossed off
-    if (todo.finished) {
-	title.classList.add("finished");
-	date.classList.add("finished");
-	notes.classList.add("finished");
-    }
-
     // Now that we've created all of the elements, add them to the todo item
     todoItem.appendChild(checkbox);
     todoItem.appendChild(title);
