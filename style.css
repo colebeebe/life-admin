@@ -148,8 +148,8 @@ main h1 {
 	width: 50px;
 	border-radius: 50%;
 	font-size: 28px;
-	background-color: var(--dark);
-	color: var(--light);
+	background-color: transparent; 
+	color: var(--dark);
 	border: none;
 	position: absolute;
 	top: 20px;
