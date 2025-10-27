@@ -18,38 +18,56 @@ const todos = [
 const main = document.querySelector("main");
 
 todos.forEach((todo) => {
+    // Create the main todo element
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = todo.finished;
+    // Create the checkbox element
+    const checkbox = document.createElement("label");
+    checkbox.classList.add("container");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    checkbox.appendChild(input);
+    const border = document.createElement("div");
+    border.classList.add("checkmark-border");
+    const checkmark = document.createElement("div");
+    checkmark.classList.add("checkmark");
+    border.appendChild(checkmark);
+    checkbox.appendChild(border);
 
+    // Create the title element
     const title = document.createElement("h1");
     title.innerText = todo.title;
 
+    // The formatter for the date
     const formatter = Intl.DateTimeFormat("en-US", {
 	weekday: "long",
 	month: "long",
 	day: "numeric",
 	year: "numeric"
     });
+    // Create the date element and format it
     const date = document.createElement("h2");
     date.innerText = formatter.format(todo.date);
 
+    // Create the notes element
     const notes = document.createElement("p");
     notes.innerText = todo.notes;
     
+    // TODO: this needs to be moved to an event listener
+    // Set classes so that text is crossed off
     if (todo.finished) {
 	title.classList.add("finished");
 	date.classList.add("finished");
 	notes.classList.add("finished");
     }
 
+    // Now that we've created all of the elements, add them to the todo item
     todoItem.appendChild(checkbox);
     todoItem.appendChild(title);
     todoItem.appendChild(date);
     todoItem.appendChild(notes);
 
+    // Finally, add the todo item into the DOM
     main.appendChild(todoItem);
 });
