@@ -1,0 +1,52 @@
+const todos = [
+    {
+	id: 1,
+	title: "Study Japanese",
+	finished: false,
+	date: new Date(2025, 9, 27),
+	notes: "Study for at least 15 minutes."
+    },
+    {
+	id: 2,
+	title: "Sort Laundry",
+	finished: true,
+	date: new Date(2025, 9, 27),
+	notes: ""
+    }
+]
+
+const main = document.querySelector("main");
+
+todos.forEach((todo) => {
+    const todoItem = document.createElement("div");
+    todoItem.classList.add("todo-item");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = todo.finished;
+
+    const title = document.createElement("h1");
+    title.innerText = todo.title;
+
+    const notes = document.createElement("p");
+    if (todo.date != null) {
+	const date = document.createElement("h2");
+	date.innerText = todo.date;
+    }
+
+    notes.innerText = todo.notes;
+    
+    if (todo.finished) {
+	title.classList.add("finished");
+	notes.classList.add("finished");
+    }
+
+    todoItem.appendChild(checkbox);
+    todoItem.appendChild(title);
+    if (todo.date) {
+	todoItem.appendChild(date);
+    }
+    todoItem.appendChild(notes);
+
+    main.appendChild(todoItem);
+});
