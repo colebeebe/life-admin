@@ -56,7 +56,6 @@
     margin-bottom: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     max-width: 450px;
 }
 .todo-header * {
@@ -68,7 +67,8 @@
 }
 .todo-header h2 {
     margin-right: 10px;
-    font-size: 20px
+    margin-top: 2px;
+    font-size: 20px;
 }
 .todo-item:has(input:checked) h1 {
     text-decoration: line-through;
