@@ -8,7 +8,7 @@ const todos = [
     },
     {
 	id: 2,
-	title: "Sort Laundry",
+	title: "Sort Laundry As Soon as I can make it home",
 	finished: true,
 	date: new Date(2025, 9, 27),
 	notes: ""
@@ -42,8 +42,8 @@ todos.forEach((todo) => {
 
     // The formatter for the date
     const formatter = Intl.DateTimeFormat("en-US", {
-	weekday: "long",
-	month: "long",
+	// weekday: "long",
+	month: "numeric",
 	day: "numeric",
 	year: "numeric"
     });
@@ -54,11 +54,15 @@ todos.forEach((todo) => {
     // Create the notes element
     const notes = document.createElement("p");
     notes.innerText = todo.notes;
+
+    const header = document.createElement("div");
+    header.classList.add("todo-header");
+    header.appendChild(title);
+    header.appendChild(date);
     
     // Now that we've created all of the elements, add them to the todo item
     todoItem.appendChild(checkbox);
-    todoItem.appendChild(title);
-    todoItem.appendChild(date);
+    todoItem.appendChild(header);
     todoItem.appendChild(notes);
 
     // Finally, add the todo item into the DOM

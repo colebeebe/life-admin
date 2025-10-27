@@ -1,3 +1,14 @@
+:root {
+    /* Adjusted palette from "Copy of vintage card" by marketing */
+    /* found on https://color.adobe.com/explore */
+    --dark: #5c4b51;
+    --blue: #8cbeb2;
+    --light: #edebde;
+    --gold: #f3b562;
+    --red: #f06060;
+    --green: #c9cc66;
+}
+
 .container {
     user-select: none;
 }
@@ -33,17 +44,41 @@
     width: 80%;
     max-width: 500px;
     margin: 10px auto;
-    background-color: white;
+    background-color: #faf9f2;
     border-radius: 20px;
 }
-.todo-item h1, .todo-item h2, .todo-item p {
+.todo-item p {
     margin: 15px;
 }
-.todo-item h1 {
-    margin-top: 30px;
+.todo-header {
+    margin-top: -2px;
+    margin-left: 50px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 450px;
 }
-.todo-item:has(input:checked) * {
+.todo-header * {
+    margin: 0;
+}
+.todo-header h1 {
+    font-size: 25px;
+    margin-right: 20px;
+}
+.todo-header h2 {
+    margin-right: 10px;
+    font-size: 20px
+}
+.todo-item:has(input:checked) h1 {
     text-decoration: line-through;
+    color: gray;
+}
+.todo-item:has(input:checked) p {
+    text-decoration: line-through;
+    color: gray;
+}
+.todo-item:has(input:checked) h2 {
     color: gray;
 }
 
