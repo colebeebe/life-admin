@@ -18,6 +18,10 @@ main * {
     margin: 0 auto;
 }
 
+#new-button {
+    margin: 10px auto;
+}
+
 .note-item {
     width: 80%;
     max-width: 800px;
