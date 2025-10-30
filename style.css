@@ -32,6 +32,13 @@ body {
     font-family: "Roboto Flex", Tahoma, Verdana, sans-serif;
 }
 
+footer {
+    margin: 20px auto;
+}
+footer p {
+    font-size: 14px;
+}
+
 h1, h2, h3 {
     color: var(--dark);
     font-family: Domina, Cambria, Georgia, serif;

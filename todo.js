@@ -16,6 +16,7 @@ const todos = [
 ]
 
 const main = document.querySelector("main");
+const footer = document.querySelector("footer");
 
 // The formatter for the date
 const formatter = Intl.DateTimeFormat("en-US", {
@@ -66,5 +67,5 @@ todos.forEach((todo) => {
     todoItem.appendChild(notes);
 
     // Finally, add the todo item into the DOM
-    main.appendChild(todoItem);
+    main.insertBefore(todoItem, footer);
 });

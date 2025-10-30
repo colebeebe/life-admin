@@ -32,6 +32,7 @@ const notes = [
 ];
 
 const main = document.querySelector("main");
+const footer = document.querySelector("footer");
 
 // The formatter for the date
 const formatter = Intl.DateTimeFormat("en-US", {
@@ -64,7 +65,7 @@ notes.forEach((note) => {
     content.innerHTML = note.content;
     noteItem.appendChild(content);
 
-    main.appendChild(noteItem);
+    main.insertBefore(noteItem, footer);
 });
 
 // const textarea = document.getElementById("note-input");

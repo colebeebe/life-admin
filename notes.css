@@ -14,10 +14,6 @@
     --green: #c9cc66;
 }
 
-main * {
-    margin: 0 auto;
-}
-
 #new-button {
     margin: 10px auto;
 }
