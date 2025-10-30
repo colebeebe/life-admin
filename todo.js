@@ -17,6 +17,13 @@ const todos = [
 
 const main = document.querySelector("main");
 
+// The formatter for the date
+const formatter = Intl.DateTimeFormat("en-US", {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric"
+});
+
 todos.forEach((todo) => {
     // Create the main todo element
     const todoItem = document.createElement("div");
@@ -40,13 +47,6 @@ todos.forEach((todo) => {
     const title = document.createElement("h1");
     title.innerText = todo.title;
 
-    // The formatter for the date
-    const formatter = Intl.DateTimeFormat("en-US", {
-	// weekday: "long",
-	month: "numeric",
-	day: "numeric",
-	year: "numeric"
-    });
     // Create the date element and format it
     const date = document.createElement("h2");
     date.innerText = formatter.format(todo.date);
