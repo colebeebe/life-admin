@@ -8,6 +8,7 @@
 	<meta name="author" content="Cole Beebe-Urbanawiz">
 	<title>Life Admin | Notes</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="notes.css">
 	<script src="script.js" defer></script>
 	<script src="notes.js" defer></script>
 	<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Manrope:wght@200..800&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
@@ -26,13 +27,45 @@
 	<main>
 	    <button id="menu-button">☰</button>
 	    <h1>Notes</h1>
-	    <div class="note">
-		<textarea id="note-input" placeholder="Type something..."></textarea>
-		<div>
-		    <button class="btn-default">New...</button>
-		    <button class="btn-confirm">Save</button>
-		    <button class="btn-deny">Cancel</button>
+	    <div class="note-item">
+		<div class="note-header">
+		    <h1>Notes on CSE 310 for module03</h1>
+		    <h2>10/30/2025</h2>
 		</div>
+		<p>
+		    There are many things that still need to be worked on. A few of these things are as follows:
+		    <ul>
+			<li>Look into the ability to save things locally</li>
+			<li>Flesh out CRUD</li>
+			<li>Implement a landing "Home" page</li>
+		    </ul>
+		</p>
+	    </div>
+	    <div class="note-item">
+		<div class="note-header">
+		    <h1>A Secondary Note</h1>
+		    <h2></h2>
+		</div>
+		<p>This is just a secondary note for now, just to make sure that spacing and other formatting things look ok.</p>
+	    </div>
+	    <div class="note-item">
+		<p>This is a tertiary note to test what it may look like without a title or date</p>
+	    </div>
+	    <div class="note-item">
+		<div class="note-header">
+		    <h1>Lorem Ipsum</h1>
+		    <h2>10/30/2025</h2>
+		</div>
+		<p>
+		    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	    </div>
+	    <div class="note-item">
+		<div class="note-header">
+		    <h1></h1>
+		    <h2>10/30/2025</h2>
+		</div>
+		<p>This is a final note to see what it might look like with just a date</p>
 	    </div>
 	</main>
     </body>

@@ -1,0 +1,48 @@
+* {
+    /* border: 2px solid red; */
+}
+
+:root {
+    /* Adjusted palette from "Copy of vintage card" by marketing */
+    /* found on https://color.adobe.com/explore */
+    --dark: #5c4b51;
+    --blue: #8cbeb2;
+    --light: #edebde;
+    --very-light: #faf9f2;
+    --gold: #f3b562;
+    --red: #f06060;
+    --green: #c9cc66;
+}
+
+main * {
+    margin: 0 auto;
+}
+
+.note-item {
+    width: 80%;
+    max-width: 800px;
+    margin: 10px auto;
+    background-color: var(--very-light);
+    border-radius: 20px;
+}
+.note-item p {
+    margin: 15px;
+}
+.note-header h1 {
+    margin: 15px;
+    margin-bottom: 0;
+    font-size: 25px;
+}
+.note-header h2 {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-top: 17px;
+    font-size: 20px;
+}
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 780px;
+    border-bottom: 1px solid var(--light);
+}
+
