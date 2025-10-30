@@ -46,6 +46,7 @@ main * {
 .note-header {
     display: flex;
     justify-content: space-between;
+    width: 95%;
     max-width: 780px;
     border-bottom: 1px solid var(--light);
 }
