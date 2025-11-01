@@ -70,7 +70,14 @@ notes.forEach((note) => {
 
 const modal = document.createElement("dialog");
 modal.innerHTML = `
+<form>
     <h1>Create New Note</h1>
+    <input 
+	type="checkbox"
+	id="date-toggle"
+	name="date-toggle"
+    />
+    <label for="date-toggle">Include date</label>
     <label for="title">Title:</label>
     <input 
 	type="text"
@@ -90,6 +97,7 @@ modal.innerHTML = `
 	<button id="save-button" class="btn-confirm">Save</button>
 	<button id="cancel-button" class="btn-deny">Cancel</button>
     </div>
+</form>
 `;
 document.body.appendChild(modal);
 
@@ -99,25 +107,71 @@ newButton.addEventListener("click", () => modal.showModal());
 modal.addEventListener("click", (event) => {
     if (event.target === modal) {
 	modal.close();
+	document.querySelector("#title").value = "";
+	document.querySelector("#content").value = "";
+	document.querySelector("#date-toggle").checked = false;
     }
 });
 
 const cancelButton = document.querySelector("#cancel-button");
-cancelButton.addEventListener("click", () => modal.close());
+cancelButton.addEventListener("click", () => {
+    modal.close()
+    document.querySelector("#title").value = "";
+    document.querySelector("#content").value = "";
+    document.querySelector("#date-toggle").checked = false;
+});
 
+// Temporarily start at 6 since we have hard-coded 5 notes in
+let noteId = 6;
 const saveButton = document.querySelector("#save-button");
+saveButton.addEventListener("click", () => {
+    if (!document.querySelector("#content").checkValidity()) {
+	return;
+    }
 
+    const newTitle = document.querySelector("#title").value.trim();
+    let newDate = null;
+    if (document.querySelector("#date-toggle").checked) {
+	newDate = new Date();
+    }
+    const newContent = document.querySelector("#content").value.trim();
+    const newNote = {
+	id: noteId,
+	title: newTitle,
+	date: newDate,
+	content: newContent
+    };
+    noteId++;
+    notes.push(newNote);
 
-// const textarea = document.getElementById("note-input");
-// 
-// document.addEventListener('keydown', function(event) {
-//     if (document.activeElement !== textarea) {
-// 	textarea.focus();
-// 
-// 	if (event.key.length === 1) {
-// 	    textarea.value += event.key;
-// 	}
-// 
-// 	event.preventDefault();
-//     } 
-// });
+    const noteItem = document.createElement("div");
+    noteItem.classList.add("note-item");
+
+    const title = document.createElement("h1");
+    title.innerHTML = newTitle;
+    const date = document.createElement("h2");
+
+    if (newDate !== null) {
+	date.innerHTML = formatter.format(newDate);
+    }
+
+    if (newTitle !== "" || newDate !== null) {
+	const header = document.createElement("div");
+	header.classList.add("note-header");
+	header.appendChild(title);
+	header.appendChild(date);
+	noteItem.appendChild(header);
+    }
+
+    const content = document.createElement("p");
+    content.innerHTML = newContent;
+    noteItem.appendChild(content);
+
+    main.insertBefore(noteItem, footer);
+
+    modal.close();
+    document.querySelector("#title").value = "";
+    document.querySelector("#content").value = "";
+    document.querySelector("#date-toggle").checked = false;
+});
+
