@@ -17,7 +17,36 @@
 #new-button {
     margin: 10px auto;
 }
-
+.container {
+    user-select: none;
+}
+.container input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.container input:checked ~ .checkmark-border .checkmark {
+    background-color: var(--red);
+}
+.checkmark-border {
+    margin: 0 15px;
+    border: 2px solid var(--red);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+.checkmark {
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
 .note-item {
     width: 80%;
     max-width: 800px;

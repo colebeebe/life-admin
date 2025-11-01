@@ -106,7 +106,10 @@ modal.innerHTML = `
 </form>
 `;
 document.body.appendChild(modal);
-document.querySelector("#date-toggle").checked = true;
+const dateToggle = document.querySelector("#date-toggle");
+const titleElement = document.querySelector("#title");
+const contentElement = document.querySelector("#content");
+dateToggle.checked = true;
 
 const newButton = document.querySelector("#new-button");
 newButton.addEventListener("click", () => modal.showModal());
@@ -114,34 +117,34 @@ newButton.addEventListener("click", () => modal.showModal());
 modal.addEventListener("click", (event) => {
     if (event.target === modal) {
 	modal.close();
-	document.querySelector("#title").value = "";
-	document.querySelector("#content").value = "";
-	document.querySelector("#date-toggle").checked = true;
+	titleElement.value = "";
+	contentElement.value = "";
+	dateToggle.checked = true;
     }
 });
 
 const cancelButton = document.querySelector("#cancel-button");
 cancelButton.addEventListener("click", () => {
     modal.close()
-    document.querySelector("#title").value = "";
-    document.querySelector("#content").value = "";
-    document.querySelector("#date-toggle").checked = true;
+    titleElement.value = "";
+    contentElement.value = "";
+    dateToggle.checked = true;
 });
 
 // Temporarily start at 6 since we have hard-coded 5 notes in
 let noteId = 6;
 const saveButton = document.querySelector("#save-button");
 saveButton.addEventListener("click", () => {
-    if (!document.querySelector("#content").checkValidity()) {
+    if (!contentElement.checkValidity()) {
 	return;
     }
 
-    const newTitle = document.querySelector("#title").value.trim();
+    const newTitle = titleElement.value.trim();
     let newDate = null;
-    if (document.querySelector("#date-toggle").checked) {
+    if (dateToggle.checked) {
 	newDate = new Date();
     }
-    const newContent = document.querySelector("#content").value.trim();
+    const newContent = contentElement.value.trim();
     const newNote = {
 	id: noteId,
 	title: newTitle,
@@ -177,8 +180,8 @@ saveButton.addEventListener("click", () => {
     main.insertBefore(noteItem, footer);
 
     modal.close();
-    document.querySelector("#title").value = "";
-    document.querySelector("#content").value = "";
-    document.querySelector("#date-toggle").checked = true;
+    titleElement.value = "";
+    contentElement.value = "";
+    dateToggle.checked = true;
 });
 

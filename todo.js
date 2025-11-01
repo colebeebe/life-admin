@@ -73,38 +73,57 @@ todos.forEach((todo) => {
 const modal = document.createElement("dialog");
 modal.innerHTML = `
 <form>
-    <h1>New To-do</h1>
-    <div id="todo-container">
-	<label for="todo">To-do</label>
-	<input 
-	    type="text"
-	    id="todo"
-	    name="todo"
-	    required
-	/>
-    </div>
-    <div id="date-container">
-	<label for="due-date">Due Date</label>
-	<input 
-	    type="date"
-	    id="due-date"
-	    name="due-date"
-	    required
-	/>
-    </div>
-    <div id="note-container">
-	<label for="note">Note</label>
-	<input 
-	    type="note"
-	    id="note"
-	    name="note"
-	    placeholder="optional"
-	/>
+    <div class="popup-box">
+	<h1>New To-do</h1>
+	<div id="todo-container">
+	    <label for="todo">To-do</label>
+	    <input 
+		type="text"
+		id="todo"
+		name="todo"
+		required
+	    />
+	</div>
+	<div id="date-container">
+	    <label for="due-date">Due Date</label>
+	    <input 
+		type="date"
+		id="due-date"
+		name="due-date"
+		required
+	    />
+	</div>
+	<div id="note-container">
+	    <label for="note">Note</label>
+	    <input 
+		type="note"
+		id="note"
+		name="note"
+		placeholder="(Optional)"
+	    />
+	</div>
+	<div id="button-container">
+	    <button id="save-button" class="btn-confirm">Save</button>
+	    <button id="cancel-button" class="btn-deny">Cancel</button>
+	</div>
     </div>
 </form>
 `;
-document.body.appendChild(modal);
+main.appendChild(modal);
 const today = new Date().toISOString().split("T")[0];
 
 document.querySelector("#due-date").min = today;
-modal.showModal();
+
+const newButton = document.querySelector("#new-todo");
+newButton.addEventListener("click", () => modal.showModal());
+
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+	modal.close();
+    }
+});
+
+const cancelButton = document.querySelector("#cancel-button");
+cancelButton.addEventListener("click", () => {
+    modal.close()
+});
