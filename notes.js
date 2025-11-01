@@ -71,41 +71,49 @@ notes.forEach((note) => {
 const modal = document.createElement("dialog");
 modal.innerHTML = `
 <form>
-    <h1>New Note</h1>
-    <div id="date-container">
-	<input 
-	    type="checkbox"
-	    id="date-toggle"
-	    name="date-toggle"
-	/>
-	<label for="date-toggle">Include date</label>
-    </div>
-    <div id="title-container">
-	<label for="title">Title</label>
-	<input 
-	    type="text"
-	    id="title"
-	    name="title"
-	    placeholder="(Optional)"
-	/>
-    </div>
-    <div id="content-container">
-	<label for="content">Note</label>
-	<input 
-	    type="textarea" 
-	    id="content" 
-	    name="content" 
-	    placeholder="Begin typing..."
-	    required
-	/>
-    </div>
-    <div id="action-buttons">
-	<button id="save-button" class="btn-confirm">Save</button>
-	<button id="cancel-button" class="btn-deny">Cancel</button>
+    <div class="popup-box">
+	<h1>New Note</h1>
+	<div id="date-container">
+	    <div class="date-checkmark">
+		<label for="date-toggle" class="container">
+		    <input 
+			type="checkbox"
+			id="date-toggle"
+			name="date-toggle"
+		    />
+		    <div class="checkmark-border">
+			<div class="checkmark"></div>
+		    </div> 
+		</label>
+		<p>Include Date</p>
+	    </div>
+	</div>
+	<div id="title-container">
+	    <label for="title">Title</label>
+	    <input 
+		type="text"
+		id="title"
+		name="title"
+		placeholder="(Optional)"
+	    />
+	</div>
+	<div id="content-container">
+	    <label for="content">Note</label>
+	    <textarea 
+		id="content" 
+		name="content" 
+		placeholder="Begin typing..."
+		required
+	    ></textarea>
+	</div>
+	<div id="action-buttons">
+	    <button id="save-button" class="btn-confirm">Save</button>
+	    <button id="cancel-button" class="btn-deny">Cancel</button>
+	</div>
     </div>
 </form>
 `;
-document.body.appendChild(modal);
+main.appendChild(modal);
 const dateToggle = document.querySelector("#date-toggle");
 const titleElement = document.querySelector("#title");
 const contentElement = document.querySelector("#content");

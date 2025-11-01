@@ -8,7 +8,7 @@ const todos = [
     },
     {
 	id: 2,
-	title: "Sort Laundry As Soon as I can make it home",
+	title: "Sort Laundry",
 	finished: true,
 	date: new Date(2025, 9, 27),
 	notes: ""
@@ -95,12 +95,11 @@ modal.innerHTML = `
 	</div>
 	<div id="note-container">
 	    <label for="note">Note</label>
-	    <input 
-		type="note"
+	    <textarea 
 		id="note"
 		name="note"
 		placeholder="(Optional)"
-	    />
+	    ></textarea> 
 	</div>
 	<div id="button-container">
 	    <button id="save-button" class="btn-confirm">Save</button>
@@ -126,4 +125,62 @@ modal.addEventListener("click", (event) => {
 const cancelButton = document.querySelector("#cancel-button");
 cancelButton.addEventListener("click", () => {
     modal.close()
+});
+
+const saveButton = document.querySelector("#save-button");
+saveButton.addEventListener("click", () => {
+    const todoElement = document.querySelector("#todo");
+    const dateElement = document.querySelector("#due-date");
+    if (!todoElement.checkValidity() || !dateElement.checkValidity()) {
+	return;
+    }
+
+    // Create the main todo element
+    const todoItem = document.createElement("div");
+    todoItem.classList.add("todo-item");
+
+    // Create the checkbox element
+    const checkbox = document.createElement("label");
+    checkbox.classList.add("container");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    checkbox.appendChild(input);
+    const border = document.createElement("div");
+    border.classList.add("checkmark-border");
+    const checkmark = document.createElement("div");
+    checkmark.classList.add("checkmark");
+    border.appendChild(checkmark);
+    checkbox.appendChild(border);
+
+    // Create the title element
+    const title = document.createElement("h1");
+    title.innerText = document.querySelector("#todo").value.trim();
+
+    // Create the date element and format it
+    const date = document.createElement("h2");
+    const newDate = document.querySelector("#due-date");
+    date.innerText = formatter.format(new Date(newDate.value));
+
+    // Create the notes element
+    const notes = document.createElement("p");
+    notes.innerText = document.querySelector("#note").value.trim();
+
+    const header = document.createElement("div");
+    header.classList.add("todo-header");
+    header.appendChild(title);
+    header.appendChild(date);
+    
+    // Now that we've created all of the elements, add them to the todo item
+    todoItem.appendChild(checkbox);
+    todoItem.appendChild(header);
+    todoItem.appendChild(notes);
+
+    // Finally, add the todo item into the DOM
+    main.insertBefore(todoItem, footer);
+
+
+    modal.close();
+    document.querySelector("#todo").value = "";
+    document.querySelector("#note").value = "";
+    document.querySelector("#due-date").value = "";
 });

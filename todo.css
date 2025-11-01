@@ -94,9 +94,9 @@ dialog {
 }
 dialog .popup-box {
     width: 400px;
-    height: 400px;
+    height: auto;
     background-color: var(--very-light);
-    margin: 40px auto;
+    margin: 80px auto;
     border-radius: 20px;
     display: grid;
     grid-auto-flow: row;
@@ -106,6 +106,14 @@ dialog .popup-box {
 dialog h1 {
     margin: 10px auto;
 }
-dialog label, dialog input {
+dialog label, dialog input, dialog textarea {
     width: 100%;
+}
+dialog input {
+    border-radius: 8px;
+    height: 20px;
+}
+dialog textarea {
+    border-radius: 8px;
+    height: 80px;
 }
