@@ -72,27 +72,33 @@ const modal = document.createElement("dialog");
 modal.innerHTML = `
 <form>
     <h1>Create New Note</h1>
-    <input 
-	type="checkbox"
-	id="date-toggle"
-	name="date-toggle"
-    />
-    <label for="date-toggle">Include date</label>
-    <label for="title">Title:</label>
-    <input 
-	type="text"
-	id="title"
-	name="title"
-	placeholder="(Optional)"
-    />
-    <label for="content">Note:</label>
-    <input 
-	type="textarea" 
-	id="content" 
-	name="content" 
-	placeholder="Begin typing..."
-	required
-    />
+    <div id="date-container">
+	<input 
+	    type="checkbox"
+	    id="date-toggle"
+	    name="date-toggle"
+	/>
+	<label for="date-toggle">Include date</label>
+    </div>
+    <div id="title-container">
+	<label for="title">Title</label>
+	<input 
+	    type="text"
+	    id="title"
+	    name="title"
+	    placeholder="(Optional)"
+	/>
+    </div>
+    <div id="content-container">
+	<label for="content">Note</label>
+	<input 
+	    type="textarea" 
+	    id="content" 
+	    name="content" 
+	    placeholder="Begin typing..."
+	    required
+	/>
+    </div>
     <div id="action-buttons">
 	<button id="save-button" class="btn-confirm">Save</button>
 	<button id="cancel-button" class="btn-deny">Cancel</button>
@@ -100,6 +106,7 @@ modal.innerHTML = `
 </form>
 `;
 document.body.appendChild(modal);
+document.querySelector("#date-toggle").checked = true;
 
 const newButton = document.querySelector("#new-button");
 newButton.addEventListener("click", () => modal.showModal());
@@ -109,7 +116,7 @@ modal.addEventListener("click", (event) => {
 	modal.close();
 	document.querySelector("#title").value = "";
 	document.querySelector("#content").value = "";
-	document.querySelector("#date-toggle").checked = false;
+	document.querySelector("#date-toggle").checked = true;
     }
 });
 
@@ -118,7 +125,7 @@ cancelButton.addEventListener("click", () => {
     modal.close()
     document.querySelector("#title").value = "";
     document.querySelector("#content").value = "";
-    document.querySelector("#date-toggle").checked = false;
+    document.querySelector("#date-toggle").checked = true;
 });
 
 // Temporarily start at 6 since we have hard-coded 5 notes in
@@ -172,6 +179,6 @@ saveButton.addEventListener("click", () => {
     modal.close();
     document.querySelector("#title").value = "";
     document.querySelector("#content").value = "";
-    document.querySelector("#date-toggle").checked = false;
+    document.querySelector("#date-toggle").checked = true;
 });
 
