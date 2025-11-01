@@ -69,7 +69,28 @@ notes.forEach((note) => {
 });
 
 const modal = document.createElement("dialog");
-modal.innerHTML = '<img src="https://picsum.photos/400?random=10" alt="Random photo">'
+modal.innerHTML = `
+    <h1>Create New Note</h1>
+    <label for="title">Title:</label>
+    <input 
+	type="text"
+	id="title"
+	name="title"
+	placeholder="(Optional)"
+    />
+    <label for="content">Note:</label>
+    <input 
+	type="textarea" 
+	id="content" 
+	name="content" 
+	placeholder="Begin typing..."
+	required
+    />
+    <div id="action-buttons">
+	<button id="save-button" class="btn-confirm">Save</button>
+	<button id="cancel-button" class="btn-deny">Cancel</button>
+    </div>
+`;
 document.body.appendChild(modal);
 
 const newButton = document.querySelector("#new-button");
@@ -80,6 +101,12 @@ modal.addEventListener("click", (event) => {
 	modal.close();
     }
 });
+
+const cancelButton = document.querySelector("#cancel-button");
+cancelButton.addEventListener("click", () => modal.close());
+
+const saveButton = document.querySelector("#save-button");
+
 
 // const textarea = document.getElementById("note-input");
 // 
