@@ -68,6 +68,19 @@ notes.forEach((note) => {
     main.insertBefore(noteItem, footer);
 });
 
+const modal = document.createElement("dialog");
+modal.innerHTML = '<img src="https://picsum.photos/400?random=10" alt="Random photo">'
+document.body.appendChild(modal);
+
+const newButton = document.querySelector("#new-button");
+newButton.addEventListener("click", () => modal.showModal());
+
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+	modal.close();
+    }
+});
+
 // const textarea = document.getElementById("note-input");
 // 
 // document.addEventListener('keydown', function(event) {
