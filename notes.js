@@ -71,7 +71,7 @@ notes.forEach((note) => {
 const modal = document.createElement("dialog");
 modal.innerHTML = `
 <form>
-    <h1>Create New Note</h1>
+    <h1>New Note</h1>
     <div id="date-container">
 	<input 
 	    type="checkbox"
